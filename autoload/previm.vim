@@ -12,7 +12,7 @@ let s:newline_character = "\n"
 function! previm#open(preview_html_file) abort
   call previm#refresh()
   if exists('g:previm_open_cmd') && !empty(g:previm_open_cmd)
-    if has('win32') && g:previm_open_cmd =~? 'firefox'
+    if has('win32') && g:previm_open_cmd =~? 'firefox\|chrome'
       " windows+firefox環境
       call s:system(g:previm_open_cmd . ' "file:///'  . fnamemodify(a:preview_html_file, ':p:gs?\\?/?g') . '"')
     elseif has('win32unix')
